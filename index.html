@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RouteLLM - Cut AI API Costs by 70%</title>
+    <meta name="description" content="Intelligent AI model routing that automatically selects the most cost-effective model for each request. Save thousands on your AI infrastructure.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .gradient-bg {
+            background: linear-gradient(-45deg, #0f172a, #1e293b, #0f172a, #1e1b4b);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen text-white">
+    <!-- Header -->
+    <header class="container mx-auto px-6 py-6">
+        <nav class="flex justify-between items-center">
+            <div class="text-2xl font-bold">
+                <span class="text-emerald-400">Route</span>LLM
+            </div>
+            <div class="space-x-6">
+                <a href="#pricing" class="hover:text-emerald-400 transition">Pricing</a>
+                <a href="#docs" class="hover:text-emerald-400 transition">Docs</a>
+                <a href="https://github.com/samsystemagent-png/agent-tools" class="hover:text-emerald-400 transition">GitHub</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <main class="container mx-auto px-6 py-20">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-block px-4 py-2 bg-emerald-400/10 rounded-full text-emerald-400 text-sm font-medium mb-6">
+                🚀 Now in Beta - 1000 free requests/month
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                Cut Your AI Costs by <span class="text-emerald-400">70%</span>
+            </h1>
+            <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+                Intelligent model routing that automatically selects the cheapest AI model for each request—without sacrificing quality.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#signup" class="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 rounded-lg font-semibold text-lg transition">
+                    Get API Key (Free)
+                </a>
+                <a href="#demo" class="px-8 py-4 bg-white/10 hover:bg-white/20 rounded-lg font-semibold text-lg transition">
+                    Try Demo →
+                </a>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mt-20">
+            <div class="bg-white/5 rounded-xl p-8 text-center">
+                <div class="text-4xl font-bold text-emerald-400 mb-2">70%</div>
+                <div class="text-gray-400">Average Cost Reduction</div>
+            </div>
+            <div class="bg-white/5 rounded-xl p-8 text-center">
+                <div class="text-4xl font-bold text-emerald-400 mb-2">&lt;50ms</div>
+                <div class="text-gray-400">Routing Latency</div>
+            </div>
+            <div class="bg-white/5 rounded-xl p-8 text-center">
+                <div class="text-4xl font-bold text-emerald-400 mb-2">6</div>
+                <div class="text-gray-400">Providers Supported</div>
+            </div>
+        </div>
+
+        <!-- How it Works -->
+        <section class="max-w-4xl mx-auto mt-32">
+            <h2 class="text-3xl font-bold text-center mb-16">How It Works</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-emerald-400/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">📊</span>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">1. Analyze Request</h3>
+                    <p class="text-gray-400">We analyze task complexity and required capabilities in real-time.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-emerald-400/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">🎯</span>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">2. Select Model</h3>
+                    <p class="text-gray-400">Route to the cheapest model that meets quality requirements.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-emerald-400/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">💰</span>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">3. Save Money</h3>
+                    <p class="text-gray-400">Simple tasks go to cheap models. Complex tasks get premium models.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Code Example -->
+        <section class="max-w-4xl mx-auto mt-32">
+            <h2 class="text-3xl font-bold text-center mb-8">One Line Integration</h2>
+            <div class="bg-gray-900 rounded-xl p-6 font-mono text-sm overflow-x-auto">
+<pre class="text-gray-300"><span class="text-emerald-400"># Instead of hardcoding a model:</span>
+response = openai.chat.completions.create(
+    model=<span class="text-red-400">"gpt-4o"</span>,  <span class="text-gray-500"># Always expensive</span>
+    messages=[...]
+)
+
+<span class="text-emerald-400"># Use RouteLLM to pick the optimal model:</span>
+<span class="text-purple-400">from</span> routellm <span class="text-purple-400">import</span> route
+
+model = route(prompt)  <span class="text-gray-500"># Returns: "gemini-flash" or "gpt-4o" etc.</span>
+response = client.chat.completions.create(
+    model=<span class="text-emerald-400">model</span>,  <span class="text-gray-500"># 70% cheaper on average</span>
+    messages=[...]
+)</pre>
+            </div>
+        </section>
+
+        <!-- Pricing -->
+        <section id="pricing" class="max-w-4xl mx-auto mt-32">
+            <h2 class="text-3xl font-bold text-center mb-4">Simple Pricing</h2>
+            <p class="text-gray-400 text-center mb-12">Pay for what you use. No surprises.</p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Free -->
+                <div class="bg-white/5 rounded-xl p-8">
+                    <h3 class="font-semibold text-lg mb-2">Free</h3>
+                    <div class="text-4xl font-bold mb-4">$0</div>
+                    <ul class="space-y-3 text-gray-400 mb-8">
+                        <li>✓ 1,000 routes/month</li>
+                        <li>✓ All models supported</li>
+                        <li>✓ Basic analytics</li>
+                        <li>✓ Community support</li>
+                    </ul>
+                    <button class="w-full py-3 border border-emerald-400 text-emerald-400 rounded-lg hover:bg-emerald-400/10 transition">
+                        Get Started
+                    </button>
+                </div>
+                
+                <!-- Pro -->
+                <div class="bg-emerald-400/10 border-2 border-emerald-400 rounded-xl p-8 relative">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-emerald-400 text-black px-3 py-1 rounded-full text-sm font-medium">
+                        Most Popular
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Pro</h3>
+                    <div class="text-4xl font-bold mb-4">$29<span class="text-lg font-normal text-gray-400">/mo</span></div>
+                    <ul class="space-y-3 text-gray-400 mb-8">
+                        <li>✓ 50,000 routes/month</li>
+                        <li>✓ Custom routing rules</li>
+                        <li>✓ Advanced analytics</li>
+                        <li>✓ Priority support</li>
+                        <li>✓ Webhook notifications</li>
+                    </ul>
+                    <button class="w-full py-3 bg-emerald-500 hover:bg-emerald-600 rounded-lg font-semibold transition">
+                        Subscribe
+                    </button>
+                </div>
+                
+                <!-- Enterprise -->
+                <div class="bg-white/5 rounded-xl p-8">
+                    <h3 class="font-semibold text-lg mb-2">Enterprise</h3>
+                    <div class="text-4xl font-bold mb-4">Custom</div>
+                    <ul class="space-y-3 text-gray-400 mb-8">
+                        <li>✓ Unlimited routes</li>
+                        <li>✓ Self-hosted option</li>
+                        <li>✓ Custom models</li>
+                        <li>✓ SLA guarantee</li>
+                        <li>✓ Dedicated support</li>
+                    </ul>
+                    <button class="w-full py-3 border border-white/20 rounded-lg hover:bg-white/10 transition">
+                        Contact Sales
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section id="signup" class="max-w-2xl mx-auto mt-32 text-center">
+            <h2 class="text-3xl font-bold mb-4">Start Saving Today</h2>
+            <p class="text-gray-400 mb-8">Get your free API key and start routing in under 2 minutes.</p>
+            <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                <input type="email" placeholder="you@company.com" 
+                    class="flex-1 px-4 py-3 bg-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400">
+                <button type="submit" class="px-6 py-3 bg-emerald-500 hover:bg-emerald-600 rounded-lg font-semibold transition">
+                    Get API Key
+                </button>
+            </form>
+            <p class="text-gray-500 text-sm mt-4">No credit card required. 1,000 free routes/month.</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="container mx-auto px-6 py-12 mt-20 border-t border-white/10">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-gray-400">
+                Built by <a href="https://github.com/samsystemagent-png" class="text-emerald-400 hover:underline">SamTheArchitect</a>
+            </div>
+            <div class="flex gap-6 text-gray-400">
+                <a href="#" class="hover:text-white">Terms</a>
+                <a href="#" class="hover:text-white">Privacy</a>
+                <a href="https://github.com/samsystemagent-png/agent-tools" class="hover:text-white">GitHub</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
